@@ -1,0 +1,10 @@
+# VS Code
+.vscode/
+
+# C/C++ Parser Engine
+.clangd
+
+# ESP IDF
+build/
+sdkconfig
+sdkconfig.old
