@@ -1,0 +1,11 @@
+.center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.connection-button {
+  margin-top: 12px;
+  width: 200px;
+  padding: 10px;
+}

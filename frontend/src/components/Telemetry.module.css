@@ -1,0 +1,50 @@
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+  font-family: sans-serif;
+}
+
+.card {
+  background-color: #1e1e1e;
+  color: #e0e0e0;
+  padding: 30px;
+  border-radius: 12px;
+  border: 1px solid #333;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  min-width: 250px;
+}
+
+.title {
+  margin: 0 0 10px 0;
+  color: #00adb5;
+}
+
+.status {
+  font-size: 0.85rem;
+  color: #888;
+  margin-bottom: 20px;
+}
+
+.statusConnected {
+  color: #00ff88;
+}
+
+.statusDisconnected {
+  color: #ff4444;
+}
+
+.statusConnecting {
+  color: #ffaa00;
+}
+
+.param {
+  font-size: 1.2rem;
+  margin: 10px 0;
+}
+
+.value {
+  font-weight: bold;
+  color: #fff;
+}
