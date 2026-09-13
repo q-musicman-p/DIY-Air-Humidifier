@@ -3,3 +3,8 @@
 
 # C/C++ Parser Engine
 .clangd
+
+# Environment variables
+*.env
+*.env.*
+!*.env.example

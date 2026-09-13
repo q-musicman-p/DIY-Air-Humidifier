@@ -1,0 +1,29 @@
+services:
+  mosquitto:
+    image: eclipse-mosquitto:latest
+    container_name: mqtt_broker
+    ports:
+      - "1883:1883"
+    volumes:
+      - ./mosquitto/mosquitto.conf:/mosquitto/config/mosquitto.conf
+    restart: unless-stopped
+
+  backend:
+    build: ./backend
+    container_name: go_backend
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mosquitto
+    environment:
+      - MQTT_BROKER_URL=${MQTT_URL}
+    restart: unless-stopped
+
+  frontend:
+    build: ./frontend
+    container_name: react_frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    restart: unless-stopped

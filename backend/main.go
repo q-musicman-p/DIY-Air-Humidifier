@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"os"
 
 	mqtt "github.com/eclipse/paho.mqtt.golang"
 	"github.com/gorilla/websocket"
@@ -97,7 +98,7 @@ func main() {
 	go stateDispatcher()
 
 	opts := mqtt.NewClientOptions()
-	opts.AddBroker("tcp://localhost:1883")
+	opts.AddBroker(os.Getenv("MQTT_BROKER_URL"))
 	opts.SetClientID("go_backend_client")
 	opts.SetDefaultPublishHandler(messagePubHandler)
 
@@ -114,7 +115,6 @@ func main() {
 
 	http.HandleFunc("/telemetry", telemetryConnection)
 
-	fmt.Println("Backend started on http://localhost:8080")
 	err := http.ListenAndServe(":8080", nil)
 	if err != nil {
 		panic(err)
